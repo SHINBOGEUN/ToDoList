@@ -22,6 +22,23 @@ let mode ='';
 let selectedMenu = "tab-all";
 let filteredList =[]
 
+
+tabs.forEach(menu=> menu.addEventListener('click', (e)=> horizontalIndicator(e)))
+
+
+
+function horizontalIndicator(e) {
+  underLine.style.left = e.currentTarget.offsetLeft + "px";
+  underLine.style.width = e.currentTarget.offsetWidth + "px";
+  underLine.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+  
+}
+
+
+
+
+
+
 for (let i =1; i<tabs.length; i++) {
     tabs[i].addEventListener("click",function(event) {filter(event)})
 }
@@ -110,6 +127,7 @@ function deleteTask(id){
 }
 
 function filter(event) {
+  
     filteredList =[]
     selectedMenu = event.target.id
     if (selectedMenu === "tab-not-done") {
